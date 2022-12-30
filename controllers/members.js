@@ -53,4 +53,14 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Show
+router.get('/:id', async (req, res) => {
+  try {
+    const member = await Member.findById(req.params.id);
+    res.json(member);
+  } catch (error) {
+    res.status(400).json({ message: `bad request` });
+  }
+});
+
 module.exports = router;

@@ -7,6 +7,7 @@ const cors = require('cors');
 const logger = require('morgan');
 const memberRouter = require('./controllers/members');
 const transactionRouter = require('./controllers/transactions');
+const eventRouter = require('./controllers/events');
 const bodyParser = require('body-parser');
 
 // create application object
@@ -43,8 +44,9 @@ app.get('/', (req, res) => {
   res.send('Welcome to Split the Bill API');
 });
 
-app.use('/api/members', memberRouter);
+app.use('/api/friends', memberRouter);
 app.use('/api/transactions', transactionRouter);
+app.use('/api/events', eventRouter);
 
 // fallback route or catch all route
 
